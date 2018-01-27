@@ -7,10 +7,11 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed, hor, ver;
     public bool canMove;
+    Rigidbody2D rb;
 
     void Start ()
     {
-		
+        rb = GetComponent<Rigidbody2D>();
 	}
 	
 	void Update ()
@@ -20,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
             hor = Input.GetAxisRaw("Horizontal");
             ver = Input.GetAxisRaw("Vertical");
 
-            transform.Translate(new Vector2(hor, ver) * speed * Time.deltaTime);
+            rb.MovePosition(rb.position + new Vector2(hor, ver) * speed * Time.deltaTime);
         }
 	}
 }
