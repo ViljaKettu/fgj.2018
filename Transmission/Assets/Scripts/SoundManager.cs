@@ -9,19 +9,16 @@ public class SoundManager : MonoBehaviour
     public AudioSource correctSound;
     public AudioSource wrongSound;
     public AudioSource musicSource;
-    public static SoundManager instance = null;
-    public float bpm = 128;
+    public AudioSource package;
 
-    SceneController scene;
 
     void Awake()
     {
-        if(instance == null)
-            instance = this;
-        else if (instance != this)
-            Destroy(gameObject);
-
         DontDestroyOnLoad(gameObject);
+        correctSound = GetComponent<AudioSource>();
+        wrongSound = GetComponent<AudioSource>();
+        musicSource = GetComponent<AudioSource>();
+
     }
 
     public void PlayCorrect()
@@ -31,5 +28,10 @@ public class SoundManager : MonoBehaviour
     public void PlayWrong()
     {
         wrongSound.Play();
+    }
+
+    public void DropPackage()
+    {
+        package.Play();
     }
 }

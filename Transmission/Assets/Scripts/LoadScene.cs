@@ -11,6 +11,11 @@ public class LoadScene : MonoBehaviour
         SceneManager.LoadScene("SoundTEST");
     }
 
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("MenuScreen");
+    }
+
     public void Quit()
     {
 #if UNITY_EDITOR
@@ -19,4 +24,6 @@ public class LoadScene : MonoBehaviour
         Application.Quit();
 #endif
     }
+
+
 }

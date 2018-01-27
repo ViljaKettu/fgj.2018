@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 
 public class SceneController : MonoBehaviour
@@ -53,6 +54,7 @@ public class SceneController : MonoBehaviour
         {
             txt.text = "CORRECT!!";
             sound.PlayCorrect();
+            StartCoroutine(Wait(3.0f));
         }
         else
         {
@@ -71,5 +73,11 @@ public class SceneController : MonoBehaviour
             people[i].transform.position = locs[i];
             people[i].transform.localScale = new Vector2(1, 1);
         }
+    }
+
+    IEnumerator Wait(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene("SoundTEST");
     }
 }
