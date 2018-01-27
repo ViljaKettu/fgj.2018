@@ -25,5 +25,4 @@ public class LoadScene : MonoBehaviour
 #endif
     }
 
-
 }
