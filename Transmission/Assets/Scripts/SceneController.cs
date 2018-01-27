@@ -16,6 +16,7 @@ public class SceneController : MonoBehaviour
     public GameObject convBox;
     public string activePerson;
     public Text txt;
+    public bool inConversation = false;
 
     void Start ()
     {
@@ -32,6 +33,7 @@ public class SceneController : MonoBehaviour
 
     public void ActivateConversation(GameObject go, string line, string n)
     {
+        inConversation = true;
         convBox.SetActive(true);
         activePerson = n;
 
@@ -65,6 +67,7 @@ public class SceneController : MonoBehaviour
 
     public void ExitConversation()
     {
+        inConversation = false;
         convBox.SetActive(false);
 
         for (int i = 0; i < people.Length; i++)
