@@ -8,22 +8,6 @@ public class LoadScene : MonoBehaviour
 
     public void OnClickPlay()
     {
-        SceneManager.LoadScene("SoundTEST");
+        SceneManager.LoadScene("TEST");
     }
-
-    public void ReturnToMenu()
-    {
-        SceneManager.LoadScene("MenuScreen");
-    }
-
-    public void Quit()
-    {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
-    }
-
-
 }
