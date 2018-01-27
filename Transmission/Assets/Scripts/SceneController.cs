@@ -81,6 +81,6 @@ public class SceneController : MonoBehaviour
     IEnumerator Wait(float delay)
     {
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene("winScreen");
+        SceneManager.LoadScene("SoundTEST");
     }
 }

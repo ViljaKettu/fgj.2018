@@ -15,9 +15,10 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         source = GetComponent<AudioSource>();
+        transform.position = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().SetPlayerLocation();
     }
-	
-	void Update ()
+
+    void Update ()
     {
 
         PlaySound();

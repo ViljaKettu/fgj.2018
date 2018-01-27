@@ -17,7 +17,7 @@ public class MarkerControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             player = true;
             sr.color = new Color(1f, 1f, 1f, 0.5f);
