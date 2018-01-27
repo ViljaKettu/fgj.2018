@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class CharacterInteraction : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
+public class CharacterInteraction : MonoBehaviour
 {
-    public Image img;
+    public SpriteRenderer img;
     public GameObject cm;
     public SceneController sc;
     public string[] lines;
@@ -19,24 +19,33 @@ public class CharacterInteraction : MonoBehaviour, IPointerEnterHandler, IPointe
     void Start ()
     {
         img.sprite = mats[0];
+        myName = transform.name;
 	}
 
-    void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+    private void OnMouseEnter()
     {
-        img.sprite = mats[1];
-        mouseOver = true;
+        if (sc.inConversation == false)
+        {
+            img.sprite = mats[1];
+        }
     }
 
-    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+    private void OnMouseExit()
     {
-        img.sprite = mats[0];
-        mouseOver = false;
+        if (sc.inConversation == false)
+        {
+            img.sprite = mats[0];
+        }
     }
-    
-    void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
-    {
-        clicked = true;
 
-        sc.ActivateConversation(transform.gameObject, lines[UnityEngine.Random.Range(0, lines.Length)], myName);
+    private void OnMouseDown()
+    {
+        if (sc.inConversation == false)
+        {
+            clicked = true;
+            img.sprite = mats[0];
+
+            sc.ActivateConversation(transform.gameObject, lines[UnityEngine.Random.Range(0, lines.Length)], myName);
+        }
     }
 }

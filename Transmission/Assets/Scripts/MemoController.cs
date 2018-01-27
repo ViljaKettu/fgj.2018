@@ -10,9 +10,24 @@ public class MemoController : MonoBehaviour
     public InputField inputField;
     public PlayerMovement playerMovement;
 
+    private static MemoController mc;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
+
+        if (mc == null)
+        {
+            mc = this;
+        }
+        else
+        {
+            DestroyObject(gameObject);
+        }
+    }
+
     void Start ()
     {
-        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         inputField.ActivateInputField();
         memo.SetActive(false);
         note.SetActive(false);
@@ -44,14 +59,22 @@ public class MemoController : MonoBehaviour
                 note.SetActive(true);
                 memo.SetActive(true);
                 memoVisible = true;
-                playerMovement.canMove = false;
+
+                if (playerMovement != null)
+                {
+                    playerMovement.canMove = false;
+                }
             }
             else if (memoVisible == true)
             {
                 note.SetActive(false);
                 memo.SetActive(false);
                 memoVisible = false;
-                playerMovement.canMove = true;
+
+                if (playerMovement != null)
+                {
+                    playerMovement.canMove = true;
+                }
             }
         }
     }
@@ -59,5 +82,13 @@ public class MemoController : MonoBehaviour
     public void SetNoteText(string txt)
     {
         note.GetComponentInChildren<Text>().text = txt;
+    }
+
+    public void FindPlayer()
+    {
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        }
     }
 }

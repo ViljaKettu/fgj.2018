@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     AudioClip footsteps;
-    AudioSource source;
+    AudioSource audio;
+
+    GameController gc;
 
     public float speed, hor, ver;
     public bool canMove;
@@ -14,7 +16,9 @@ public class PlayerMovement : MonoBehaviour
     void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
-        source = GetComponent<AudioSource>();
+        audio = GetComponent<AudioSource>();
+        transform.position = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().SetPlayerLocation();
+        GameObject.FindGameObjectWithTag("Canvas").GetComponent<MemoController>().FindPlayer();
     }
 	
 	void Update ()
@@ -31,16 +35,16 @@ public class PlayerMovement : MonoBehaviour
 
     void PlaySound()
     {
-        if(!source.isPlaying)
+        if(!audio.isPlaying)
         {
             if (Mathf.Abs(hor) > 0 || Mathf.Abs(ver) > 0)
             {
-                source.Play();
+                audio.Play();
             }
         }
         else if (hor == 0 && ver == 0)
         {
-            source.Stop();
+            audio.Stop();
         }
 
     }

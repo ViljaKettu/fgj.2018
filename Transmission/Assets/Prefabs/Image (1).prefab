@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1558f12f09fbbe340bd2875756cc6dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  img: {fileID: 114442218908149618}
+  img: {fileID: 0}
   cm: {fileID: 0}
   sc: {fileID: 0}
   lines:
@@ -74,7 +74,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -93,14 +93,14 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1571751576500440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 174.69751, y: -36.96649, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -627, y: -212, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 174.69751, y: -36.96649}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -627, y: -212}
+  m_SizeDelta: {x: 1173, y: 1303}
   m_Pivot: {x: 0.5, y: 0.5}
