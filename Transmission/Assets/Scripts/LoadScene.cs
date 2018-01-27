@@ -8,7 +8,7 @@ public class LoadScene : MonoBehaviour
 
     public void OnClickPlay()
     {
-        SceneManager.LoadScene("SoundTEST");
+        SceneManager.LoadScene("Map");
     }
 
     public void ReturnToMenu()
