@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
+
 
 public class SceneController : MonoBehaviour
 {
-
     public GameObject[] people;
     public Vector2[] locs;
     public string[] names;
+    SoundManager sound;
 
     public GameObject convBox;
     public string activePerson;
@@ -50,10 +52,12 @@ public class SceneController : MonoBehaviour
         if(activePerson == names[0])
         {
             txt.text = "CORRECT!!";
+            sound.PlayCorrect();
         }
         else
         {
             txt.text = "ERROR!!";
+            sound.PlayWrong();
         }
     }
 
