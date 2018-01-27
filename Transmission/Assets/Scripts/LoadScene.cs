@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other)
+
+    public void OnClickPlay()
     {
-        //TODO: add location
-        SceneManager.LoadScene("ADD NAME OF SCENE HERE");
+        SceneManager.LoadScene("TEST");
     }
 }
