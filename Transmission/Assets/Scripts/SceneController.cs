@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     public GameObject[] people;
-    public Vector2[] locs;
+    public Vector3[] locs;
     public string[] names;
     SoundManager sound;
 
@@ -21,6 +21,7 @@ public class SceneController : MonoBehaviour
     void Start ()
     {
         people = GameObject.FindGameObjectsWithTag("People");
+        convBox = GameObject.FindGameObjectWithTag("ConvBox");
 
         for (int i = 0; i < people.Length; i++)
         {
@@ -45,7 +46,7 @@ public class SceneController : MonoBehaviour
             }
         }
 
-        go.transform.position = new Vector2(-3.5f, -5f);
+        go.transform.position = new Vector3(-3.5f, -5f, 90f);
         go.transform.localScale = new Vector2(2, 2);
         txt.text = line;
     }

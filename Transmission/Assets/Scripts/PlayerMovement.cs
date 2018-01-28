@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed, hor, ver;
     public bool canMove;
+    public Vector2 maxMove, minMove;
     Rigidbody2D rb;
 
     void Start ()
@@ -20,12 +21,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Update ()
     {
-
         PlaySound();
         if (canMove)
         {
             hor = Input.GetAxisRaw("Horizontal");
             ver = Input.GetAxisRaw("Vertical");
+
+            rb.position = new Vector2(
+            Mathf.Clamp(rb.position.x, minMove.x, maxMove.x),
+            Mathf.Clamp(rb.position.y, minMove.y, maxMove.y));
+
             rb.MovePosition(rb.position + new Vector2(hor, ver) * speed * Time.deltaTime);
         }
     }

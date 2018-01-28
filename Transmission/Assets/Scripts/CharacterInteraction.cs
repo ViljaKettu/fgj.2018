@@ -6,46 +6,45 @@ using UnityEngine.EventSystems;
 
 public class CharacterInteraction : MonoBehaviour
 {
-    public SpriteRenderer img;
-    public GameObject cm;
-    public SceneController sc;
+    public SpriteRenderer charSprite;
+    public SceneController sceneCtrl;
     public string[] lines;
+    public Sprite[] sprites;
     public string myName;
 
     //TESTI
     public bool mouseOver, clicked;
-    public Sprite[] mats;
 
     void Start ()
     {
-        img.sprite = mats[0];
+        sceneCtrl = GameObject.FindGameObjectWithTag("SceneCtrl").GetComponent<SceneController>();
         myName = transform.name;
 	}
 
     private void OnMouseEnter()
     {
-        if (sc.inConversation == false)
+        if (sceneCtrl.inConversation == false)
         {
-            img.sprite = mats[1];
+            charSprite.sprite = sprites[1];
         }
     }
 
     private void OnMouseExit()
     {
-        if (sc.inConversation == false)
+        if (sceneCtrl.inConversation == false)
         {
-            img.sprite = mats[0];
+            charSprite.sprite = sprites[0];
         }
     }
 
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
-        if (sc.inConversation == false)
+        if (sceneCtrl.inConversation == false)
         {
             clicked = true;
-            img.sprite = mats[0];
+            charSprite.sprite = sprites[0];
 
-            sc.ActivateConversation(transform.gameObject, lines[UnityEngine.Random.Range(0, lines.Length)], myName);
+            sceneCtrl.ActivateConversation(transform.gameObject, lines[UnityEngine.Random.Range(0, lines.Length)], myName);
         }
     }
 }
